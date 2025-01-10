@@ -2,7 +2,6 @@
 """
 Created on Thu Jun 11 10:56:58 2020
 
-@author: Ivan
 """
 import pandas as pd
 import requests
@@ -32,7 +31,7 @@ for page in range(1,4):
     theFans = []
     theLooked = []
     theStar = []
-    for i in range(50):#每一頁只有五十筆資料
+    for i in range(80):#每一頁只有80筆資料
         theName.append(getAllName[i].text)
         theClass.append(getAllClass[i].text.replace(' ',''))
         theFans.append(getAllFans[i].find('span').text.replace(' ','')[:-1])
@@ -53,7 +52,7 @@ for page in range(1,4):
 container['訂閱數量'] = container['訂閱數量'].astype(float)
 container['平均觀看次數'] = container['平均觀看次數'].astype(float)
 container['Nox評級'] = container['Nox評級'].astype(float)
-container.to_csv('台灣youtuber排名.csv', encoding='utf-8-sig', index=False)
+container.to_csv('HKyoutuber排名.csv', encoding='utf-8-sig', index=False)
 
 
 
